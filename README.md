@@ -4,11 +4,12 @@ Harry Chopra & Eliot Howes
 
 # Models and Relationship
 
-User  —<   Day —<  Day_Sedentary_Activity  >—  Sedentary_Activity
+	 User  —<   Day —<  Day_Sedentary_Activity  >—  Sedentary_Activity
 
-		         —<   Day_Exercise  >—  Exercise 
+			         —<   Day_Exercise  >—  Exercise 
 
-		   	     —<  Meal  —<  Meal_Ingredient  >—    Ingredient
+		         	     —<  Meal  —<  Meal_Ingredient  >—    Ingredient
+			     
              
 # Associations
 
