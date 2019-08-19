@@ -1,2 +1,14 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Manage Your Account</h1>
+
+<h4><%= @user.name %></h4>
+
+<b>Username: </b><%= @user.username %><br>
+<%= button_to "Change password", user_path, :method => :get %>
+<b>Age: </b><%= @user.age %><br>
+<b>Height: </b><%= @user.height %><br>
+<b>Weight: </b><%= @user.weight %><br>
+<b>Bio: </b><%= @user.bio %><br>
+
+<%= button_to "Edit My Details", edit_user_path, :method => :get %>
+
+

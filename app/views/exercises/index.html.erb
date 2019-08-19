@@ -1,2 +1,11 @@
-<h1>Exercises#index</h1>
-<p>Find me in app/views/exercises/index.html.erb</p>
+<h1>Exercise</h1>
+<ul><% @exercises.map do |activity| %>
+
+<li>
+<b><%= link_to activity.name, exercise_path(activity) %></b><br>
+<%= activity.duration %> mins<br>
+<%= pluralize(activity.calories, 'calorie')%>
+</li>
+<br>
+<% end %>
+</ul>
