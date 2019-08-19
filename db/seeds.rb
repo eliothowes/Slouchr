@@ -64,15 +64,31 @@ DaySedentaryActivity.create(day_id: 9, sedentary_activity_id: 3)
 DaySedentaryActivity.create(day_id: 10, sedentary_activity_id: 4)
 DaySedentaryActivity.create(day_id: 11, sedentary_activity_id: 5)
 
+# Meals
 
-# # Ingredients
+Meal.create(day_id: 1, name: "Chicken and Avocado Sandwich", total_calories: 912, total_protein: 68, total_fat: 28, total_carbs: 91)
+Meal.create(day_id: 1, name: "Pasta Bolognese", total_calories: 1040, total_protein: 69, total_fat: 10, total_carbs: 47)
+Meal.create(day_id: 2, name: "Big Mac Meal", total_calories: 1780, total_protein: 56, total_fat: 76, total_carbs: 208)
+Meal.create(day_id: 2, name: "Big Daddy Box Meal", total_calories: 2808, total_protein: 113, total_fat: 138, total_carbs: 278)
+Meal.create(day_id: 3, name: "Snickers", total_calories: 500, total_protein: 8, total_fat: 24, total_carbs: 66)
+Meal.create(day_id: 3, name: "Monster Munch", total_calories: 394, total_protein: 5, total_fat: 20, total_carbs: 48)
 
-# Ingredient.create(name: "", calories: , protein: , fat: , carbs: )
+# Ingredients
 
-# # Meal_Ingredients
+Ingredient.create(name: "Chicken Breast", calories: 280, protein: 52, fat: 6, carbs: 0)
+Ingredient.create(name: "Avocado", calories: 240, protein: 2, fat: 20, carbs: 11)
+Ingredient.create(name: "Slice of Bread", calories: 196, protein: 7, fat: 1, carbs: 37)
+Ingredient.create(name: "Rice", calories: 236, protein: 4, fat: 3, carbs: 45)
+Ingredient.create(name: "Penne Pasta", calories: 592, protein: 4, fat: 0, carbs: 28)
+Ingredient.create(name: "Minced Beef", calories: 336, protein: 62, fat: 9, carbs: 0)
+Ingredient.create(name: "Pasta Sauce", calories: 112, protein: 3, fat: 1, carbs: 19)
 
-# MealIngredient.create(meal_id: , ingredient_id: )
+# Meal_Ingredients
 
-# # Meals
-
-# Meal.create(day_id: , name: "", total_calories: , total_protein: , total_fat: , total_carbs: )
+MealIngredient.create(meal_id: 1, ingredient_id: 1)
+MealIngredient.create(meal_id: 1, ingredient_id: 2)
+MealIngredient.create(meal_id: 1, ingredient_id: 3)
+MealIngredient.create(meal_id: 1, ingredient_id: 3)
+MealIngredient.create(meal_id: 2, ingredient_id: 5)
+MealIngredient.create(meal_id: 2, ingredient_id: 6)
+MealIngredient.create(meal_id: 2, ingredient_id: 7)

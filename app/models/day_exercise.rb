@@ -1,4 +1,4 @@
 class DayExercise < ApplicationRecord
   belongs_to :day
-  has_many :exercises
+  belongs_to :exercise
 end
