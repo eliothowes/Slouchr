@@ -1,3 +1,3 @@
 class Exercise < ApplicationRecord
-  belongs_to :day_exercise
+  has_many :day_exercises
 end

@@ -1,3 +1,3 @@
 class SedentaryActivity < ApplicationRecord
-  belongs_to :day_sedentary_activity
+  has_many :day_sedentary_activities
 end
