@@ -1,2 +1,8 @@
-<h1>Days#index</h1>
-<p>Find me in app/views/days/index.html.erb</p>
+<h2>See History</h2>
+
+<% @days.each do |day| %>
+<h3><%= link_to day.diary_date, day_path(day) %></h3>
+<% end %>
+
+<h2>Start New Day</h2>
+

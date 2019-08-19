@@ -14,5 +14,11 @@ class User < ApplicationRecord
   validates :password, length: { in: 6..20 }
   validates :height, numericality: {greater_than: 90, less_than: 210 }
   validates :weight, numericality: { greater_than: 65, less_than: 500 }
+
+  has_secure_password
+
+  def first_name
+    self.name.split(" ").first
+  end
   
 end

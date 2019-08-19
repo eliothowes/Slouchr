@@ -1,2 +1,46 @@
-<h1>Days#show</h1>
-<p>Find me in app/views/days/show.html.erb</p>
+<h2>Here is your info for the day</h2>
+
+<h3>Sedentary Activity</h3>
+<% if !@day.sedentary_activities.empty? %>
+<ul>
+  <% @day.sedentary_activities.each do |activity| %>
+    <li> <%= activity.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Too BAD! You didn't SLOUCH today!</p>
+<% end %>
+
+
+<h3>Exercise</h3>
+<% if !@day.exercises.empty? %>
+<ul>
+    <% @day.exercises.each do |exercise| %>
+    <li> <%= exercise.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Nice work, you've saved those precious calories!</p>
+<% end %>
+
+<h3>Meals</h3>
+<% if !@day.meals.empty? %>
+<ul>
+    <% @day.meals.each do |meal| %>
+        <li><%= meal.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Come on, why haven't you been piling on the pounds!</p>
+<% end %>
+
+<h3>Other Food/Snacks</h3>
+<% if !@day.ingredients.empty? %>
+<ul>
+    <% @day.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Come on, no snacks today?!</p>
+<% end %>
