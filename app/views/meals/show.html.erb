@@ -1,2 +1,19 @@
-<h1>Meals#show</h1>
-<p>Find me in app/views/meals/show.html.erb</p>
+<h2><%= @meal.name %></h2>
+
+<h3>Nutritional Breakdown</h3>
+<h5>Calories: <%= @meal.total_calories %>kcal</h5>
+<h5>Protein: <%= @meal.total_protein %>g</h5>
+<h5>Fat: <%= @meal.total_fat %>g</h5>
+<h5>Carbohydrate: <%= @meal.total_carbs %>g</h5>
+
+<% unless @meal.ingredients.empty? %>
+    <h3>Ingredients</h3>
+    <ul>
+        <% @meal.ingredients.each do |ingredient| %>
+        <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= button_to 'Return to See all Meals', meals_path, method: :get %>
+
