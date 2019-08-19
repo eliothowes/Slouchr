@@ -1,2 +1,10 @@
-<h1>SedentaryActivities#show</h1>
-<p>Find me in app/views/sedentary_activities/show.html.erb</p>
+<h1>Sedentary Activity</h1>
+
+<h4><%= @sedentaryactivity.name %></h4>
+
+<%= @sedentaryactivity.duration %>mins<br>
+<%= pluralize(@sedentaryactivity.calories, 'calorie')%><br>
+
+<%= button_to "Edit Activity", edit_sedentary_activity_path, :method => :get %>
+
+
