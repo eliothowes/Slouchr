@@ -1,0 +1,36 @@
+
+<% if params[:decision] == "new" %>
+    <%= form_for @meal do |f| %>
+        <div id="form_name_field">
+            <%= f.label :name %>
+            <%= f.text_field :name, required: true %>
+        </div>
+        <div>
+            <%= f.label :total_calories %>
+            <%= f.number_field :total_calories, required: true %>
+        </div>
+        <div>
+            <%= f.label :total_protein %>
+            <%= f.number_field :total_protein, required: true %>
+        </div>
+        <div>
+            <%= f.label :total_fat %>
+            <%= f.number_field :total_fat, required: true %>
+        </div>
+        <div>
+            <%= f.label :total_carbohydrate %>
+            <%= f.number_field :total_carbs, required: true %>
+        </div>
+        <div>
+            <%= f.submit %>
+        </div>
+    <% end %>
+<% elsif params[:decision] == "selection" %>
+    <%= form_for @meal do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, required: true %>
+
+        <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, multiple: true %>
+        <%= f.submit %>
+    <% end %>
+<% end %>
