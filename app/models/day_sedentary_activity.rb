@@ -1,4 +1,4 @@
 class DaySedentaryActivity < ApplicationRecord
   belongs_to :day
-  has_many :sedentary_activities
+  belongs_to :sedentary_activity
 end
