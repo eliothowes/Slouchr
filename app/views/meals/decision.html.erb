@@ -1,0 +1,4 @@
+<h2>How would you like to create a new Meal</h2>
+
+<%= button_to "Create A Custom Meal", new_meal_path, method: :get, params: {decision: "new"} %>
+<%= button_to "Pick From Current Ingredients List", stock_meal_path, method: :get, params: {decision: "selection"} %>

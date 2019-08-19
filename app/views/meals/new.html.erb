@@ -1,2 +1,5 @@
-<h1>Meals#new</h1>
-<p>Find me in app/views/meals/new.html.erb</p>
+<h2>Create New Meal</h2>
+
+<%= render 'form', meal: @meal  %>
+
+<%= button_to "Return to See all Meals", meals_path, method: :get %>

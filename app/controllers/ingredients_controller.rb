@@ -1,5 +1,8 @@
 class IngredientsController < ApplicationController
+  before_action :find_ingredient, only: [:show, :edit, :update]
+
   def index
+    @ingredients = Ingredient.all
   end
 
   def new
@@ -10,4 +13,12 @@ class IngredientsController < ApplicationController
 
   def edit
   end
+
+  private
+
+  def find_ingredient
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+
 end
