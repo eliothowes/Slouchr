@@ -3,8 +3,9 @@ class Meal < ApplicationRecord
   has_many :meal_ingredients
   has_many :ingredients, through: :meal_ingredients
 
+  validates :name, uniqueness: true
+
   def calculate_nutrition_totals
-#  byebug
     self.total_calories = self.ingredients.sum do |ingredient|
       ingredient.calories
     end

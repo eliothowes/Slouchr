@@ -5,6 +5,8 @@
 <h5>Fat: <%= @ingredient.fat %>g</h5>
 <h5>Carbohydrate: <%= @ingredient.carbs %>g</h5>
 
+<%= link_to "Edit Ingredient", edit_ingredient_path(@ingredient) %> | <%= link_to "Delete Ingredient", ingredient_path(@ingredient), method: :delete %>
+
 <%= button_to 'Return to See all Ingredients', ingredients_path, method: :get %>
 <%= button_to 'Return to See all Meals', meals_path, method: :get %>
 

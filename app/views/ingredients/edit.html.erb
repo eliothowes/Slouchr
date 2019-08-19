@@ -1,2 +1,5 @@
-<h1>Ingredients#edit</h1>
-<p>Find me in app/views/ingredients/edit.html.erb</p>
+<h2>Edit <%= @ingredient.name %></h2>
+
+<%= render 'form', ingredient: @ingredient %>
+
+<%= link_to 'Return to All Ingredients', ingredients_path %>

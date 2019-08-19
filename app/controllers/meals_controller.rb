@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-  before_action :find_meal, only: [:show, :edit, :update] 
+  before_action :find_meal, only: [:show, :edit, :update, :destroy] 
 
   def index
     @meals = Meal.all
@@ -23,10 +23,9 @@ class MealsController < ApplicationController
     @meal = Meal.new
       if params[:meal][:ingredient_ids]
         ingredients = params[:meal][:ingredient_ids]
-          ingredients.delete("")
-          ingredients.map {|ingredient_id| 
-          @meal.ingredients << Ingredient.find(ingredient_id)
-          }
+        ingredients.delete("")
+        ingredients.map {|ingredient_id| @meal.ingredients << Ingredient.find(ingredient_id)}
+        
         @meal.name = params[:meal][:name]
         @meal.calculate_nutrition_totals
         ######Need to Manage this at a later date######
@@ -40,10 +39,26 @@ class MealsController < ApplicationController
         ######Need to Manage this at a later date######
         @meal.save
       end
-    redirect_to meals_path
+
+    if @meal.valid?
+      redirect_to meals_path
+    else
+      byebug
+      render :new
+    end
   end
 
   def edit
+  end
+
+  def update
+    @meal.update(meal_params)
+    redirect_to meal_path(@meal)
+  end
+
+  def destroy
+    Meal.destroy(@meal.id)
+    redirect_to meals_path
   end
 
   private
