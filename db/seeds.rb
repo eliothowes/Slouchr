@@ -8,11 +8,11 @@
 
 # #Users
 
-User.create(name: "Harry Chopra", username: "harrychopra", password: "123456", age: 29, height: 187, weight: 187, bio: "")
-User.create(name: "Eliot Howes", username: "eliothowes", password: "123456", age: 28, height: 172, weight: 178, bio: "")
-User.create(name: "Rod Cardenas", username: "rokujo", password: "123456", age: 31, height: 175, weight: 160, bio: "")
-User.create(name: "Adnan Azim", username: "adnanazam", password: "123456", age: 28, height: 187, weight: 170, bio: "")
-User.create(name: "Nick Charlot", username: "whatever", password: "123456", age: 30, height: 180, weight: 180, bio: "")
+User.create(name: "Harry Chopra", username: "harrychopra", password: "123456", age: 29, height: 187, weight: 187, bio: "This is my Bio. It is very interesting")
+User.create(name: "Eliot Howes", username: "eliothowes", password: "123456", age: 28, height: 172, weight: 178, bio: "This is my Bio. It is very interesting")
+User.create(name: "Rod Cardenas", username: "rokujo", password: "123456", age: 31, height: 175, weight: 160, bio: "This is my Bio. It is very interesting")
+User.create(name: "Adnan Azim", username: "adnanazam", password: "123456", age: 28, height: 187, weight: 170, bio: "This is my Bio. It is very interesting")
+User.create(name: "Nick Charlot", username: "whatever", password: "123456", age: 30, height: 180, weight: 180, bio: "This is my Bio. It is very interesting")
 
 # #Days
 
