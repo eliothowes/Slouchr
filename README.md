@@ -8,62 +8,64 @@ Harry Chopra & Eliot Howes
 
 			         —<   Day_Exercise  >—  Exercise 
 
-		         	     —<  Meal  —<  Meal_Ingredient  >—    Ingredient
+		         	 -<  Day_Meal  >-  Meal  —<  Meal_Ingredient  >—  Ingredient
 			     
              
 # Associations
 
 __*User*__
 has_many :days
-has_many :day_sedentary_activities, through: :days
-has_many :sedentary_activities, through: :day_sedentary_activities
-has_many :day_exercises 
-has_many :exercises, through: :day_exercises
-has_many :meals
-has_many :meal_ingredients, through: :meals
-has_many :ingredients, through: :meal_ingredients
-
+  has_many :day_sedentary_activities, through: :days
+  has_many :sedentary_activities, through: :day_sedentary_activities
+  has_many :day_exercises, through: :days
+  has_many :exercises, through: :day_exercises
+  has_many :day_meals, through: :days
+  has_many :meals, through: :day_meals
+  has_many :meal_ingredients, through: :meals
+  has_many :ingredients, through: :meal_ingredients
 
 __*Day*__
 belongs_to :user
-has_many :day_sedentary_activities
-has_many :sedentary_activities, through: :day_sedentary_activities
-has_many :day_exercises 
-has_many :exercises, through: :day_exercises
-has_many :meals
-has_many :meal_ingredients, through: :meals
-has_many :ingredients, through: :meal_ingredients
+  has_many :day_sedentary_activities
+  has_many :sedentary_activities, through: :day_sedentary_activities
+  has_many :day_exercises
+  has_many :exercises, through: :day_exercises
+  has_many :day_meals
+  has_many :meals, through: :day_meals
+  has_many :meal_ingredients, through: :meals
+  has_many :ingredients, through: :meal_ingredients
 
 
 __*Day_Sedentary_Activity*__
 belongs_to :day
-has_many :sedentary_activities
-
+belongs_to :sedentary_activity
 
 __*Sedentary_Activity*__
-belongs_to :day_sedentary_activity
-
+has_many :day_sedentary_activities
+has_many :days, through: :day_sedentary_activities
 
 __*Day_Exercise*__
 belongs_to :day
-has_many :exercises
-
+belongs_to :exercise
 
 __*Exercise*__
-belongs_to :day_exercise
+  has_many :day_exercises
+  has_many :days, through: :day_exercises
 
+__*Day_Meal*__
+belongs_to :day
+belongs_to :meal
 
 __*Meal*__
-belongs_to :day
+has_many :day_meals
 has_many :meal_ingredients
 has_many :ingredients, through: :meal_ingredients
 
-
 __*Meal_ingredient*__
 belongs_to :meal
-has_many :ingredients
+belongs_to :ingredient
 
 __*Ingredient*__
-belongs_to :meal_ingredient
+has_many :meal_ingredients
 
 							     

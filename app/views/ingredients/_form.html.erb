@@ -1,0 +1,18 @@
+<%= form_for @ingredient do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  
+    <%= f.label :calories %>
+    <%= f.text_field :calories, required: true %>
+  
+    <%= f.label :protein %>
+    <%= f.text_field :protein, required: true %>
+  
+    <%= f.label :fat %>
+    <%= f.text_field :fat, required: true %>
+  
+    <%= f.label :carbs %>
+    <%= f.text_field :carbs, required: true %>
+
+    <%= f.submit %>
+<% end %>

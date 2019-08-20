@@ -1,5 +1,15 @@
+<% if @meal.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being created:</h2>
+    <ul>
+        <% @meal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<% if params[:decision] == "new" %>
+<% if params[:decision] == "new" || @meal.ingredients.empty? && params[:action] == "edit" || @meal.ingredients.empty? && params[:action] == "update"%>
     <%= form_for @meal do |f| %>
         <div id="form_name_field">
             <%= f.label :name %>
@@ -25,12 +35,12 @@
             <%= f.submit %>
         </div>
     <% end %>
-<% elsif params[:decision] == "selection" %>
+<% elsif params[:decision] == "selection"|| @meal.ingredients && params[:action] == "edit" || @meal.ingredients && params[:action] == "update"%>
     <%= form_for @meal do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name, required: true %>
 
-        <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, multiple: true %>
+        <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, options: {multiple: true, required: true} %>
         <%= f.submit %>
     <% end %>
 <% end %>
