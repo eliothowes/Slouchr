@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<% if params[:decision] == "new" || @meal.id != nil %>
+<% if params[:decision] == "new" || @meal.ingredients.empty? && params[:action] == "edit" || @meal.ingredients.empty? && params[:action] == "update"%>
     <%= form_for @meal do |f| %>
         <div id="form_name_field">
             <%= f.label :name %>
@@ -35,7 +35,7 @@
             <%= f.submit %>
         </div>
     <% end %>
-<% elsif params[:decision] == "selection" || @meal.id == nil %>
+<% elsif params[:decision] == "selection"|| @meal.ingredients && params[:action] == "edit" || @meal.ingredients && params[:action] == "update"%>
     <%= form_for @meal do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name, required: true %>

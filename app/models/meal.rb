@@ -1,5 +1,5 @@
 class Meal < ApplicationRecord
-  belongs_to :day
+  has_many :day_meals
   has_many :meal_ingredients
   has_many :ingredients, through: :meal_ingredients
 
@@ -18,8 +18,8 @@ class Meal < ApplicationRecord
     self.total_carbs = self.ingredients.sum do |ingredient|
       ingredient.carbs
     end
-    
   end
+
 end
 
 

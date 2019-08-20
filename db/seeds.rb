@@ -66,12 +66,20 @@ DaySedentaryActivity.create(day_id: 11, sedentary_activity_id: 5)
 
 # Meals
 
-Meal.create(day_id: 1, name: "Chicken and Avocado Sandwich", total_calories: 912, total_protein: 68, total_fat: 28, total_carbs: 91)
-Meal.create(day_id: 1, name: "Pasta Bolognese", total_calories: 1040, total_protein: 69, total_fat: 10, total_carbs: 47)
-Meal.create(day_id: 2, name: "Big Mac Meal", total_calories: 1780, total_protein: 56, total_fat: 76, total_carbs: 208)
-Meal.create(day_id: 2, name: "Big Daddy Box Meal", total_calories: 2808, total_protein: 113, total_fat: 138, total_carbs: 278)
-Meal.create(day_id: 3, name: "Snickers", total_calories: 500, total_protein: 8, total_fat: 24, total_carbs: 66)
-Meal.create(day_id: 3, name: "Monster Munch", total_calories: 394, total_protein: 5, total_fat: 20, total_carbs: 48)
+Meal.create(name: "Chicken and Avocado Sandwich", total_calories: 912, total_protein: 68, total_fat: 28, total_carbs: 91)
+Meal.create(name: "Pasta Bolognese", total_calories: 1040, total_protein: 69, total_fat: 10, total_carbs: 47)
+Meal.create(name: "Big Mac Meal", total_calories: 1780, total_protein: 56, total_fat: 76, total_carbs: 208)
+Meal.create(name: "Big Daddy Box Meal", total_calories: 2808, total_protein: 113, total_fat: 138, total_carbs: 278)
+Meal.create(name: "Snickers", total_calories: 500, total_protein: 8, total_fat: 24, total_carbs: 66)
+Meal.create(name: "Monster Munch", total_calories: 394, total_protein: 5, total_fat: 20, total_carbs: 48)
+
+# Day Meal
+DayMeal.create(day_id: 1, meal_id: 1)
+DayMeal.create(day_id: 2, meal_id: 2)
+DayMeal.create(day_id: 3, meal_id: 3)
+DayMeal.create(day_id: 4, meal_id: 4)
+DayMeal.create(day_id: 5, meal_id: 5)
+DayMeal.create(day_id: 6, meal_id: 6)
 
 # Ingredients
 

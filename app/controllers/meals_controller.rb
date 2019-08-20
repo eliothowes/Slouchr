@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
   before_action :find_meal, only: [:show, :edit, :update, :destroy] 
+  helper_method :ingredient_selection
 
   def index
     @meals = Meal.all
@@ -21,39 +22,38 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new
-      if params[:meal][:ingredient_ids]
-        ingredients = params[:meal][:ingredient_ids]
-        ingredients.delete("")
-        ingredients.map {|ingredient_id| @meal.ingredients << Ingredient.find(ingredient_id)}
-        
+      if params[:meal][:ingredient_ids]       
         @meal.name = params[:meal][:name]
+        ingredient_selection
         @meal.calculate_nutrition_totals
-        ######Need to Manage this at a later date######
-        @meal.day_id = 1
-        ######Need to Manage this at a later date######
         @meal.save
+        redirect_to meals_path
       else
         @meal = Meal.new(meal_params)
-        ######Need to Manage this at a later date######
-        @meal.day_id = 1
-        ######Need to Manage this at a later date######
         @meal.save
+        redirect_to meals_path
       end
-
-    if @meal.valid?
-      redirect_to meals_path
-    else
-      byebug
-      render :new
-    end
   end
 
   def edit
   end
 
   def update
-    @meal.update(meal_params)
-    redirect_to meal_path(@meal)
+    if @meal.ingredients[0]
+        @meal.name = params[:meal][:name]
+        @meal.ingredients = []
+        ingredient_selection
+        @meal.calculate_nutrition_totals
+        @meal.save
+    elsif @meal.ingredients.empty?
+        @meal.update(meal_params)
+    end
+
+    if @meal.valid?
+      redirect_to meal_path(@meal)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -69,6 +69,12 @@ class MealsController < ApplicationController
 
   def meal_params
     params.require(:meal).permit(:name, :total_calories, :total_protein, :total_fat, :total_carbs)
+  end
+
+  def ingredient_selection
+    ingredients = params[:meal][:ingredient_ids]
+    ingredients.delete("")
+    ingredients.map {|ingredient_id| @meal.ingredients << Ingredient.find(ingredient_id)}
   end
 
 end
