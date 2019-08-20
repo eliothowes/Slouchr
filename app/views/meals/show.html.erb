@@ -10,10 +10,11 @@
     <h3>Ingredients</h3>
     <ul>
         <% @meal.ingredients.each do |ingredient| %>
-        <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+        <li><%= ingredient.name %></li>
         <% end %>
     </ul>
 <% end %>
+<%= link_to "Edit Meal", edit_meal_path(@meal) %> | <%= link_to "Delete Meal", meal_path(@meal), method: :delete %>
 
 <%= button_to 'Return to See all Meals', meals_path, method: :get %>
 

@@ -31,8 +31,13 @@ Rails.application.routes.draw do
   
   ###### Ingredients ######
   get '/ingredients', to: 'ingredients#index', as: 'ingredients'
+  get '/ingredients/new', to: 'ingredients#new', as: 'new_ingredient'
   get '/ingredients/:id', to: 'ingredients#show', as: 'ingredient'
-
+  post '/ingredients', to: 'ingredients#create'
+  get '/ingredients/:id/edit', to: 'ingredients#edit', as: 'edit_ingredient'
+  patch '/ingredients/:id', to: 'ingredients#update'
+  delete '/ingredients/:id', to: 'ingredients#destroy'
+  
   ###### Meals ######
   get '/meals', to: 'meals#index', as: 'meals'
   get '/meals/new', to: 'meals#new', as: 'new_meal'
