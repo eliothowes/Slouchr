@@ -1,4 +1,4 @@
-<h2>Here is your info for the day</h2>
+<h2>Diary for <%= @day.diary_date.strftime("%A, %d %B %Y") %></h2>
 
 <h3>Sedentary Activity</h3>
 <% if !@day.sedentary_activities.empty? %>
