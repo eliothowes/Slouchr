@@ -1,4 +1,5 @@
 class SedentaryActivitiesController < ApplicationController
+  before_action :is_admin?, only: [:index, :show, :edit]
 
   def index
     @sedentaryactivities = SedentaryActivity.all
@@ -45,4 +46,5 @@ class SedentaryActivitiesController < ApplicationController
   def strong_params
   params.require(:sedentary_activity).permit(:name, :calories, :duration, :start_time)
   end
+
 end

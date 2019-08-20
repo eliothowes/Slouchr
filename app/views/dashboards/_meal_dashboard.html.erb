@@ -1,0 +1,12 @@
+<% if current_user.day_started? %>
+<h3>Meals</h3>
+<% if !current_user.get_current_date.meals.empty? %>
+<ul>
+    <% current_user.get_current_date.meals.each do |meal| %>
+        <li><%= meal.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Come on, why haven't you been piling on the pounds!</p>
+<% end %>
+<% end %>

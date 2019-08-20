@@ -1,8 +1,8 @@
 <h2>See History</h2>
 
 <% @days.each do |day| %>
-<h3><%= link_to day.diary_date, day_path(day) %></h3>
+<h4><%= link_to day.diary_date.strftime("%A, %d %B %Y"), day_path(day) %></h4>
 <% end %>
 
-<h2>Start New Day</h2>
+<%= button_to "Start My Day", new_day_path, :method => :get %>
 

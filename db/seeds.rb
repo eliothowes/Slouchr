@@ -100,3 +100,22 @@ MealIngredient.create(meal_id: 1, ingredient_id: 3)
 MealIngredient.create(meal_id: 2, ingredient_id: 5)
 MealIngredient.create(meal_id: 2, ingredient_id: 6)
 MealIngredient.create(meal_id: 2, ingredient_id: 7)
+
+
+# Snacks
+
+Snack.create(name: "Mars Bar", calories: 1280, protein: 52, fat: 6, carbs: 0)
+Snack.create(name: "Gummy Bears", calories: 1240, protein: 2, fat: 20, carbs: 11)
+Snack.create(name: "Resse's PB Cups", calories: 1196, protein: 7, fat: 1, carbs: 37)
+Snack.create(name: "Potato Chips", calories: 1236, protein: 4, fat: 3, carbs: 45)
+Snack.create(name: "Chocolate Shake", calories: 1592, protein: 4, fat: 0, carbs: 28)
+Snack.create(name: "Bag of Donuts", calories: 2336, protein: 62, fat: 9, carbs: 0)
+
+# Day Snack
+
+DaySnack.create(day_id: 1, snack_id: 1)
+DaySnack.create(day_id: 2, snack_id: 2)
+DaySnack.create(day_id: 3, snack_id: 3)
+DaySnack.create(day_id: 4, snack_id: 4)
+DaySnack.create(day_id: 5, snack_id: 5)
+DaySnack.create(day_id: 6, snack_id: 6)

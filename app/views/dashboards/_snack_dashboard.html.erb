@@ -1,0 +1,12 @@
+<% if current_user.day_started? %>
+<h3>Snacks</h3>
+<% if !current_user.get_current_date.snacks.empty? %>
+<ul>
+    <% current_user.get_current_date.snacks.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Come on, no snacks today?!</p>
+<% end %>
+<% end %>

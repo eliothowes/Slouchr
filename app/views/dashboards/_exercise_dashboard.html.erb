@@ -1,0 +1,12 @@
+<% if current_user.day_started? %>
+<h3>Exercise</h3>
+<% if !current_user.get_current_date.exercises.empty? %>
+<ul>
+    <% current_user.get_current_date.exercises.each do |exercise| %>
+    <li> <%= exercise.name %></li>
+    <% end %>
+</ul>
+<% else %>
+    <p>Nice work, you've saved those precious calories!</p>
+<% end %>
+<% end %>

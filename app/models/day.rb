@@ -8,4 +8,10 @@ class Day < ApplicationRecord
   has_many :meals, through: :day_meals
   has_many :meal_ingredients, through: :meals
   has_many :ingredients, through: :meal_ingredients
+  has_many :day_snacks
+  has_many :snacks, through: :day_snacks
+
+  def formatted
+    self.diary_date.strftime("%A, %d %B %Y")
+  end
 end
