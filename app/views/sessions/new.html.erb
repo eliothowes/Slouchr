@@ -1,10 +1,10 @@
-<h2>Login</h2>
-    <%= form_tag sessions_path do %>
+<h2>Slouchr</h2>
+    <div><%= form_tag sessions_path do %>
     <%= label :user, :username %>
-    <%= text_field :user, :username %>
+    <%= text_field :user, :username %></div>
 
-    <%= label :user, :password %>
-    <%= password_field :user, :password %>
-
+    <div><%= label :user, :password %>
+    <%= password_field :user, :password %></div>
+<br>
     <%= submit_tag "Login" %>
 <% end %>
