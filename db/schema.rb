@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_095646) do
+ActiveRecord::Schema.define(version: 2019_08_20_155125) do
 
   create_table "day_exercises", force: :cascade do |t|
     t.integer "day_id"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2019_08_20_095646) do
   create_table "day_sedentary_activities", force: :cascade do |t|
     t.integer "day_id"
     t.integer "sedentary_activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "day_snacks", force: :cascade do |t|
+    t.integer "day_id"
+    t.integer "snack_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,6 +88,16 @@ ActiveRecord::Schema.define(version: 2019_08_20_095646) do
     t.integer "duration"
     t.datetime "start_time"
     t.integer "calories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "snacks", force: :cascade do |t|
+    t.string "name"
+    t.integer "calories"
+    t.integer "protein"
+    t.integer "fat"
+    t.integer "carbs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

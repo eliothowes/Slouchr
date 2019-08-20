@@ -1,0 +1,38 @@
+<h2> <%= current_user.first_name %>'s Dashboard</h2>
+
+
+<div>
+    <% if current_user.day_started? %>
+         <%= button_to "Edit My Day", new_day_path, :method => :get %>
+    <% else %>
+        <%= button_to "Start My Day", new_day_path, :method => :get %>
+   <% end %>
+</div>
+ 
+
+<div>
+    <%= render "sedentary_dashboard" %>
+</div>
+
+<div>
+    <%= render "exercise_dashboard" %>
+</div>
+
+<div>
+    <%= render "meal_dashboard" %>
+</div>
+
+<div>
+    <%= render "snack_dashboard" %>
+</div>
+
+
+
+
+<div id="dashboard-history">
+    <h4>View History</h4>
+    <%= form_tag day_path(:id), method: :get do %>
+    <%= collection_select :user, :day_ids, @user.days, :id, :formatted %>
+    <%= submit_tag "View Diary"%>
+    <% end %>
+</div>

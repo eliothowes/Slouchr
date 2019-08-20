@@ -9,6 +9,9 @@ Harry Chopra & Eliot Howes
 			         —<   Day_Exercise  >—  Exercise 
 
 		         	 -<  Day_Meal  >-  Meal  —<  Meal_Ingredient  >—  Ingredient
+
+                -<  Day_Snack  >-  Snacks
+
 			     
              
 # Associations
@@ -23,6 +26,8 @@ has_many :days
   has_many :meals, through: :day_meals
   has_many :meal_ingredients, through: :meals
   has_many :ingredients, through: :meal_ingredients
+  has_many :day_snacks, through: :days
+  has_many :snacks, through: :day_snacks
 
 __*Day*__
 belongs_to :user
@@ -34,6 +39,8 @@ belongs_to :user
   has_many :meals, through: :day_meals
   has_many :meal_ingredients, through: :meals
   has_many :ingredients, through: :meal_ingredients
+  has_many :day_snacks
+  has_many :snacks, through: :day_snacks
 
 
 __*Day_Sedentary_Activity*__
@@ -68,4 +75,11 @@ belongs_to :ingredient
 __*Ingredient*__
 has_many :meal_ingredients
 
-							     
+__*Day_Snack*__
+belongs_to :day
+belongs_to :snack
+
+__*Snack*__
+has_many :day_snacks
+has_many :days, through: :day_snacks							     
+

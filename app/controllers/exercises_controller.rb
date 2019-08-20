@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController
+  before_action :is_admin?, only: [:index, :show, :edit]
   def index
     @exercises = Exercise.all
   end

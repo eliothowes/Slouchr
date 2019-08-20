@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_action :is_admin?, only: [:index, :show, :edit]
   before_action :find_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
