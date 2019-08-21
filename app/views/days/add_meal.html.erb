@@ -1,10 +1,12 @@
-<h2>Add Exercise</h2>
-
+<div class="page-title">
+    <h2>Add Meal</h2>
+</div>
+<div class="form-group">
 <%= form_for @day, url: create_meal_path(@day), method: :post do |f| %>
        
-        <%= f.select :meal_ids, options_for_select(Meal.all.collect { |m| [ m.name, m.id ] }), {}, {:multiple => true, :class => "", :style => "width:450px; height:125px" } %><br><br>
+        <%= f.select :meal_ids, options_for_select(Meal.all.collect { |m| [ m.name, m.id ] }), {}, {:multiple => true, :class => "form-control", :style => "height:125px" } %><br><br>
 
         <%= f.submit%>
 
     <% end %>
-   
+</div>

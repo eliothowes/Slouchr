@@ -1,21 +1,25 @@
+<div role="form" class="border rounded activity-form-aligned">
+
 <%= form_for @exercise do |f| %>
 
 <%= f.label "Name: " %>
-<%= f.text_field :name, placeholder: "Name of the activity", required: true %><br>
+<%= f.text_field :name, placeholder: "Name of the activity", required: true, class: 'form-control' %><br>
 
 <%= f.label "Duration: " %>
-<%= f.number_field :duration, placeholder: "Minutes", required: true  %><br>
+<%= f.number_field :duration, placeholder: "Minutes", required: true, class: 'form-control'  %><br>
 
 <%= f.label "Start time: " %>
-<%= f.datetime_field :start_time, required: true %><br>
+<%= f.datetime_field :start_time, required: true, class: 'form-control' %><br>
 
 <%= f.label "Calories: " %>
-<%= f.number_field :calories, placeholder: "Calories Burnt", required: true %><br>
+<%= f.number_field :calories, placeholder: "Calories Burnt", required: true, class: 'form-control' %><br>
 
 
 <%= f.submit %>
 
 <% end %>
+</div>
+
 <% if @exercise.id %>
 <br>
 Do you want to delete this exercise?
