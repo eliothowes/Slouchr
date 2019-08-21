@@ -15,7 +15,7 @@ class MealsController < ApplicationController
   end
 
   def stock_meal
-    @meal = Meal.new()
+    @meal = Meal.new
   end
 
   def show

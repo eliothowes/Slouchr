@@ -78,5 +78,14 @@ Rails.application.routes.draw do
 
 
   ###### dashboard ######
-get "/dashboard", to: "dashboards#index", as: "dashboard"
+  get "/dashboard", to: "dashboards#index", as: "dashboard"
+
+  ###### Snacks ######
+  get "/snacks", to: "snacks#index", as: "snacks"
+  get "/snacks/new", to: "snacks#new", as: "new_snack"
+  get "/snacks/:id", to: "snacks#show", as: "snack"
+  post "/snacks", to: "snacks#create"
+  get "/snacks/:id/edit", to: "snacks#edit", as: "edit_snack"
+  patch "/snacks/:id", to: "snacks#update"
+
 end

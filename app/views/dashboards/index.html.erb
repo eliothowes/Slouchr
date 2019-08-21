@@ -31,13 +31,15 @@
                 <%= render "snack_dashboard" %>
             </div>
 
-        </div>
+       </div>
+
     </div>
 
 <% end %>
 
 
 <div class="dashboard-history border rounded">
+
     <h4>View History</h4>
     <%= form_tag day_path(:id), method: :get do %>
     <%= collection_select :user, :day_ids, @user.days, :id, :formatted %>
