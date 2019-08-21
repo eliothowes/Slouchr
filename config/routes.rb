@@ -28,39 +28,64 @@ Rails.application.routes.draw do
   get "/users/:id/edit", to: "users#edit", as: "edit_user"
   patch "/users/:id", to: "users#update"
   delete "/users/:id", to: "users#destroy", as: "destroy_user"
-  
+
   ###### Ingredients ######
-  get '/ingredients', to: 'ingredients#index', as: 'ingredients'
-  get '/ingredients/new', to: 'ingredients#new', as: 'new_ingredient'
-  get '/ingredients/:id', to: 'ingredients#show', as: 'ingredient'
-  post '/ingredients', to: 'ingredients#create'
-  get '/ingredients/:id/edit', to: 'ingredients#edit', as: 'edit_ingredient'
-  patch '/ingredients/:id', to: 'ingredients#update'
-  delete '/ingredients/:id', to: 'ingredients#destroy'
-  
+  get "/ingredients", to: "ingredients#index", as: "ingredients"
+  get "/ingredients/new", to: "ingredients#new", as: "new_ingredient"
+  get "/ingredients/:id", to: "ingredients#show", as: "ingredient"
+  post "/ingredients", to: "ingredients#create"
+  get "/ingredients/:id/edit", to: "ingredients#edit", as: "edit_ingredient"
+  patch "/ingredients/:id", to: "ingredients#update"
+  delete "/ingredients/:id", to: "ingredients#destroy"
+
   ###### Meals ######
-  get '/meals', to: 'meals#index', as: 'meals'
-  get '/meals/new', to: 'meals#new', as: 'new_meal'
-  get '/meals/decision', to: 'meals#decision'
-  get '/meals/:id', to: 'meals#show', as: 'meal'
-  post '/meals', to: 'meals#create'
-  get '/meals/:id/edit', to: 'meals#edit', as: 'edit_meal'
-  patch '/meals/:id', to: 'meals#update'
-  delete '/meals/:id', to: 'meals#destroy'
-  get '/meals/new/stock', to: 'meals#stock_meal', as: 'stock_meal'
+  get "/meals", to: "meals#index", as: "meals"
+  get "/meals/new", to: "meals#new", as: "new_meal"
+  get "/meals/decision", to: "meals#decision"
+  get "/meals/:id", to: "meals#show", as: "meal"
+  post "/meals", to: "meals#create"
+  get "/meals/:id/edit", to: "meals#edit", as: "edit_meal"
+  patch "/meals/:id", to: "meals#update"
+  delete "/meals/:id", to: "meals#destroy"
+  get "/meals/new/stock", to: "meals#stock_meal", as: "stock_meal"
 
   ######Days######
-  get '/days', to: 'days#index', as: 'days'
+  get "/days", to: "days#index", as: "days"
   get "/days/new", to: "days#new", as: "new_day"
+  get "/days/add_sedentary_activity", to: "days#add_sedentary_activity", as: "add_sedentary_activity"
+  get "/days/add_exercise", to: "days#add_exercise", as: "add_exercise"
+  get "/days/add_meal", to: "days#add_meal", as: "add_meal"
+  get "/days/add_snack", to: "days#add_snack", as: "add_snack"
+
+  post "/days/create_sedentary_activity", to: "days#create_sedentary_activity", as: "create_sedentary_activity"
+  post "/days/create_exercise", to: "days#create_exercise", as: "create_exercise"
+  post "/days/create_meal", to: "days#create_meal", as: "create_meal"
+  post "/days/create_snack", to: "days#create_snack", as: "create_snack"
+
+
   get "/days/:id", to: "days#show", as: "day"
+
   post "/days", to: "days#create"
-  get "/days/:id/edit", to: "days#edit", as: "edit_day"
-  patch "/days/:id", to: "days#update"
-  delete "/days/:id", to: "days#destroy", as: "destroy_day"
+  # get "/days/:id/edit", to: "days#edit", as: "edit_day"
+  # patch "/days/:id", to: "days#update"
+  # delete "/days/:id", to: "days#destroy", as: "destroy_day"
 
   ######Sessions######
+  get "/", to: "sessions#new"
   get "/login", to: "sessions#new", as: "new_session"
   post "/sessions", to: "sessions#create", as: "sessions"
   delete "/sessions", to: "sessions#destroy"
+
+
+  ###### dashboard ######
+  get "/dashboard", to: "dashboards#index", as: "dashboard"
+
+  ###### Snacks ######
+  get "/snacks", to: "snacks#index", as: "snacks"
+  get "/snacks/new", to: "snacks#new", as: "new_snack"
+  get "/snacks/:id", to: "snacks#show", as: "snack"
+  post "/snacks", to: "snacks#create"
+  get "/snacks/:id/edit", to: "snacks#edit", as: "edit_snack"
+  patch "/snacks/:id", to: "snacks#update"
 
 end

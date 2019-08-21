@@ -1,0 +1,13 @@
+<h2><%= @snack.name %></h2>
+<h3>Nutritional Breakdown</h3>
+<h4>Calories: <%= @snack.calories %>kcal</h4>
+<h5>Protein: <%= @snack.protein %>g</h5>
+<h5>Fat: <%= @snack.fat %>g</h5>
+<h5>Carbohydrate: <%= @snack.carbs %>g</h5>
+
+<%= link_to "Edit Ingredient", edit_snack_path(@snack) %> | <%= link_to "Delete Snack", snack_path(@snack), method: :delete %>
+
+<%= button_to 'Return to See all Snacks', snacks_path, method: :get %>
+
+
+

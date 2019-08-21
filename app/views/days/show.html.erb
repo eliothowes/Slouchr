@@ -10,6 +10,8 @@
 <% else %>
     <p>Too BAD! You didn't SLOUCH today!</p>
 <% end %>
+<%= button_to "Add Sedentary Activity", add_sedentary_activity_path,:method => :get, params: {day: @day.id} %>
+
 
 
 <h3>Exercise</h3>
@@ -22,6 +24,7 @@
 <% else %>
     <p>Nice work, you've saved those precious calories!</p>
 <% end %>
+<%= button_to "Add Exercise", add_exercise_path,:method => :get, params: {day: @day.id} %>
 
 <h3>Meals</h3>
 <% if !@day.meals.empty? %>
@@ -33,14 +36,16 @@
 <% else %>
     <p>Come on, why haven't you been piling on the pounds!</p>
 <% end %>
+<%= button_to "Add Meal", add_meal_path,:method => :get, params: {day: @day.id} %>
 
-<h3>Other Food/Snacks</h3>
-<% if !@day.ingredients.empty? %>
+<h3>Snacks</h3>
+<% if !@day.snacks.empty? %>
 <ul>
-    <% @day.ingredients.each do |ingredient| %>
+    <% @day.snacks.each do |ingredient| %>
         <li><%= ingredient.name %></li>
     <% end %>
 </ul>
 <% else %>
     <p>Come on, no snacks today?!</p>
 <% end %>
+<%= button_to "Add Snack", add_snack_path,:method => :get, params: {day: @day.id} %>

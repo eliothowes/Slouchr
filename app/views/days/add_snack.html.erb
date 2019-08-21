@@ -1,0 +1,10 @@
+<h2>Add Snack</h2>
+
+<%= form_for @day, url: create_snack_path(@day), method: :post do |f| %>
+       
+        <%= f.select :snack_ids, options_for_select(Snack.all.collect { |s| [ s.name, s.id ] }), {}, {:multiple => true, :class => "", :style => "width:450px; height:125px" } %><br><br>
+
+        <%= f.submit%>
+
+    <% end %>
+   

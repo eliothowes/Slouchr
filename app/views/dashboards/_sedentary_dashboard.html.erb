@@ -1,0 +1,13 @@
+
+<% if current_user.day_started? %>
+  <h3>Sedentary Activity</h3>
+  <% if !current_user.get_current_date.sedentary_activities.empty? %>
+      <ul>
+        <% current_user.get_current_date.sedentary_activities.each do |activity| %>
+          <li> <%= activity.name %></li>
+          <% end %>
+      </ul>
+  <% else %>
+    <p>Too BAD! You didn't SLOUCH today!</p>
+  <% end %>
+<% end %>

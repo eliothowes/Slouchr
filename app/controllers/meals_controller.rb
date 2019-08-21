@@ -1,4 +1,5 @@
 class MealsController < ApplicationController
+  before_action :is_admin?, only: [:index, :show, :edit]
   before_action :find_meal, only: [:show, :edit, :update, :destroy] 
   helper_method :ingredient_selection
 
@@ -14,7 +15,7 @@ class MealsController < ApplicationController
   end
 
   def stock_meal
-    @meal = Meal.new()
+    @meal = Meal.new
   end
 
   def show
