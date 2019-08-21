@@ -1,35 +1,43 @@
-<h2> <%= current_user.first_name %>'s Dashboard</h2>
-
-
+<div class="page-title">
+    <h2> <%= current_user.first_name %>'s Dashboard</h2>
+</div>
+<!-- Button-->
 <div>
     <% if current_user.day_started? %>
-         <%= button_to "Edit My Day", new_day_path, :method => :get %>
+         <%= button_to "Edit My Day", new_day_path, :method => :get, class: 'btn btn-secondary btn-lg btn-block' %>
     <% else %>
-        <%= button_to "Start My Day", new_day_path, :method => :get %>
+        <%= button_to "Start My Day", new_day_path, :method => :get, class: 'btn btn-primary btn-lg btn-block' %>
    <% end %>
 </div>
- 
+<!-- Main Container-->
+<% if current_user.day_started? %>
 
-<div>
-    <%= render "sedentary_dashboard" %>
-</div>
+    <div class="container">
+        <div class="row">
 
-<div>
-    <%= render "exercise_dashboard" %>
-</div>
+            <div class="col dash-boxes-left border rounded">
+                <%= render "sedentary_dashboard" %>
+            </div>
 
-<div>
-    <%= render "meal_dashboard" %>
-</div>
+            <div class="col dash-boxes-right border rounded">
+                <%= render "exercise_dashboard" %>
+            </div>
+        <div class="w-100"></div>
+            <div class="col dash-boxes-left border rounded">
+                <%= render "meal_dashboard" %>
+            </div>
 
-<div>
-    <%= render "snack_dashboard" %>
-</div>
+            <div class="col dash-boxes-right border rounded">
+                <%= render "snack_dashboard" %>
+            </div>
+
+        </div>
+    </div>
+
+<% end %>
 
 
-
-
-<div id="dashboard-history">
+<div class="dashboard-history border rounded">
     <h4>View History</h4>
     <%= form_tag day_path(:id), method: :get do %>
     <%= collection_select :user, :day_ids, @user.days, :id, :formatted %>

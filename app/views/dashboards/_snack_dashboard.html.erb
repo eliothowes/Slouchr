@@ -1,5 +1,6 @@
 <% if current_user.day_started? %>
-<h3>Snacks</h3>
+<h4>Snacks<span class="calorie-info"> // <%= current_user.calories_consumed_for_snacks%> kcal | Protein: <%= current_user.macros_consumed_for_snacks[0]%> | Fat: <%= current_user.macros_consumed_for_snacks[1]%> | Carbs: <%= current_user.macros_consumed_for_snacks[2] %></span></h4>
+
 <% if !current_user.get_current_date.snacks.empty? %>
 <ul>
     <% current_user.get_current_date.snacks.each do |ingredient| %>

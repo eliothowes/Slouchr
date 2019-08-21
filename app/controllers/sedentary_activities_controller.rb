@@ -16,7 +16,8 @@ class SedentaryActivitiesController < ApplicationController
   def create
     @sedentaryactivity = SedentaryActivity.new(strong_params)
     if @sedentaryactivity.save
-      redirect_to sedentaryactivities_path
+      @day = current_user.get_current_date
+      redirect_to add_sedentary_activity_path(current_user, day: @day.id)
     else
       render :new
     end

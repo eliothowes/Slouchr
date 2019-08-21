@@ -1,51 +1,68 @@
-<h2>Diary for <%= @day.diary_date.strftime("%A, %d %B %Y") %></h2>
+<div class="page-title">
+    <h3>Diary for <%= @day.diary_date.strftime("%A, %d %B %Y") %></h3>
+</div>
+    <div>
+      <%= button_to "Return to Dashboard", dashboard_path, :method => :get, class: 'btn btn-outline-secondary btn-lg btn-block ' %>
+    </div>
 
-<h3>Sedentary Activity</h3>
-<% if !@day.sedentary_activities.empty? %>
-<ul>
-  <% @day.sedentary_activities.each do |activity| %>
-    <li> <%= activity.name %></li>
-    <% end %>
-</ul>
-<% else %>
-    <p>Too BAD! You didn't SLOUCH today!</p>
-<% end %>
-<%= button_to "Add Sedentary Activity", add_sedentary_activity_path,:method => :get, params: {day: @day.id} %>
+<div class="container">
+    <div class="row">
+        <div class="days-boxes-left border rounded">
+            <h3>Sedentary Activity</h3>
+            <% if !@day.sedentary_activities.empty? %>
+            <ul>
+            <% @day.sedentary_activities.each do |activity| %>
+                <li> <%= activity.name %> <span class="box-info">(<%= activity.duration %> mins | <%= activity.calories %> kcal)</span></li>
+                <% end %>
+            </ul>
+            <% else %>
+                <p>Too BAD! You didn't SLOUCH today!</p>
+            <% end %>
+            <%= button_to "Add Sedentary Activity", add_sedentary_activity_path,:method => :get, params: {day: @day.id} %>
+        </div>
 
+        <div class="days-boxes-right border rounded">
+            <h3>Exercise</h3>
+            <% if !@day.exercises.empty? %>
+            <ul>
+                <% @day.exercises.each do |exercise| %>
+                <li> <%= exercise.name %>   <span class="box-info">(<%= exercise.duration %> mins | <%= exercise.calories %> kcal)</span></li>
+                <% end %>
+            </ul>
+            <% else %>
+                <p>Nice work, you've saved those precious calories!</p>
+            <% end %>
+            <%= button_to "Add Exercise", add_exercise_path,:method => :get, params: {day: @day.id} %>
+        </div>
 
+    <div class="w-100"></div>
 
-<h3>Exercise</h3>
-<% if !@day.exercises.empty? %>
-<ul>
-    <% @day.exercises.each do |exercise| %>
-    <li> <%= exercise.name %></li>
-    <% end %>
-</ul>
-<% else %>
-    <p>Nice work, you've saved those precious calories!</p>
-<% end %>
-<%= button_to "Add Exercise", add_exercise_path,:method => :get, params: {day: @day.id} %>
+        <div class="days-boxes-left border rounded">
+            <h3>Meals</h3>
+            <% if !@day.meals.empty? %>
+            <ul>
+                <% @day.meals.each do |meal| %>
+                    <li><%= meal.name %><span class="box-info"> (<%= meal.total_calories %> kcal | Protein:<%= meal.total_protein %>g | Fat:<%= meal.total_fat %>g | Carbs: <%= meal.total_carbs %>g)</li>
+                <% end %>
+            </ul>
+            <% else %>
+                <p>Come on, why haven't you been piling on the pounds!</p>
+            <% end %>
+            <%= button_to "Add Meal", add_meal_path,:method => :get, params: {day: @day.id} %>
+        </div>
 
-<h3>Meals</h3>
-<% if !@day.meals.empty? %>
-<ul>
-    <% @day.meals.each do |meal| %>
-        <li><%= meal.name %></li>
-    <% end %>
-</ul>
-<% else %>
-    <p>Come on, why haven't you been piling on the pounds!</p>
-<% end %>
-<%= button_to "Add Meal", add_meal_path,:method => :get, params: {day: @day.id} %>
-
-<h3>Snacks</h3>
-<% if !@day.snacks.empty? %>
-<ul>
-    <% @day.snacks.each do |ingredient| %>
-        <li><%= ingredient.name %></li>
-    <% end %>
-</ul>
-<% else %>
-    <p>Come on, no snacks today?!</p>
-<% end %>
-<%= button_to "Add Snack", add_snack_path,:method => :get, params: {day: @day.id} %>
+        <div class="days-boxes-right border rounded">
+            <h3>Snacks</h3>
+            <% if !@day.snacks.empty? %>
+            <ul>
+                <% @day.snacks.each do |snack| %>
+                  <li><%= snack.name %><span class="box-info"> (<%= snack.calories %> kcal | Protein:<%= snack.protein %>g | Fat:<%= snack.fat %>g | Carbs: <%= snack.carbs %>g)</li>
+                <% end %>
+            </ul>
+            <% else %>
+                <p>Come on, no snacks today?!</p>
+            <% end %>
+            <%= button_to "Add Snack", add_snack_path,:method => :get, params: {day: @day.id} %>
+        </div>
+    </div>
+</div>

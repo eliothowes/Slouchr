@@ -23,14 +23,44 @@ class User < ApplicationRecord
   def first_name
     self.name.split(" ").first
   end
-  
+
   def day_started?
     self.days.any? { |day| day.diary_date == DateTime.now.to_date }
   end
 
   def get_current_date
-   self.days.select{ |day| day.diary_date == DateTime.now.to_date }.first
+    self.days.select { |day| day.diary_date == DateTime.now.to_date }.first
   end
 
-end
+  def macros_consumed_for_meals
+    macros = []
+    macros << self.get_current_date.meals.sum { |meal| meal.total_protein }
+    macros << self.get_current_date.meals.sum { |meal| meal.total_fat }
+    macros << self.get_current_date.meals.sum { |meal| meal.total_carbs }
+    macros
+  end
 
+  def calories_consumed_for_meals
+    self.get_current_date.meals.sum { |meal| meal.total_calories }
+  end
+
+  def macros_consumed_for_snacks
+    macros = []
+    macros << self.get_current_date.snacks.sum { |snack| snack.protein }
+    macros << self.get_current_date.snacks.sum { |snack| snack.fat }
+    macros << self.get_current_date.snacks.sum { |snack| snack.carbs }
+    macros
+  end
+
+  def calories_consumed_for_snacks
+    self.get_current_date.snacks.sum { |snack| snack.calories }
+  end
+
+  def calories_burned_through_sedentary
+    self.get_current_date.sedentary_activities.sum { |sedentary| sedentary.calories }
+  end
+
+  def calories_burned_through_exercises
+    self.get_current_date.exercises.sum { |exercise| exercise.calories }
+  end
+end

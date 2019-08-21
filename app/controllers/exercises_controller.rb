@@ -15,7 +15,9 @@ class ExercisesController < ApplicationController
   def create
     @exercise = Exercise.new(strong_params)
     if @exercise.save
-      redirect_to exercises_path
+      # redirect_to exercises_path
+      @day = current_user.get_current_date
+      redirect_to add_exercise_path(current_user, day: @day.id)
     else
       render :new
     end
