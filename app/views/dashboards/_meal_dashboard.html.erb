@@ -1,5 +1,6 @@
 <% if current_user.day_started? %>
-<h3>Meals</h3>
+<h4>Meals<span class="calorie-info"> // <%= current_user.calories_consumed_for_meals%> kcal | Protein: <%= current_user.macros_consumed_for_meals[0]%> | Fat: <%= current_user.macros_consumed_for_meals[1]%> | Carbs: <%= current_user.macros_consumed_for_meals[2] %></span></h4>
+
 <% if !current_user.get_current_date.meals.empty? %>
 <ul>
     <% current_user.get_current_date.meals.each do |meal| %>
@@ -7,6 +8,6 @@
     <% end %>
 </ul>
 <% else %>
-    <p>Come on, why haven't you been piling on the pounds!</p>
+    <p>Come on, why haven't you been piling on the pounds! </p>
 <% end %>
 <% end %>

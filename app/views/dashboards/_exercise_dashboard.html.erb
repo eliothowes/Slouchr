@@ -1,5 +1,6 @@
 <% if current_user.day_started? %>
-<h3>Exercise</h3>
+<h4>Exercise <span class="calorie-info"> // <%= current_user.calories_burned_through_exercises%> kcal</span> </h4>
+
 <% if !current_user.get_current_date.exercises.empty? %>
 <ul>
     <% current_user.get_current_date.exercises.each do |exercise| %>

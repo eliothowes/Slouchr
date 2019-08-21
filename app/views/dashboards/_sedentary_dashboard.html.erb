@@ -1,6 +1,7 @@
 
 <% if current_user.day_started? %>
-  <h3>Sedentary Activity</h3>
+  <h4>Sedentary Activity<span class="calorie-info"> // <%= current_user.calories_burned_through_sedentary%> kcal</span></h4>
+  
   <% if !current_user.get_current_date.sedentary_activities.empty? %>
       <ul>
         <% current_user.get_current_date.sedentary_activities.each do |activity| %>
