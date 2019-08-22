@@ -1,14 +1,15 @@
-<h1>Manage Your Account</h1>
+<div class="page-title"><h1>Manage Your Account</h1></div>
 
-<h4><%= @user.name %></h4>
+<h4 align="center"><u><%= @user.name %></u></h4>
 
+<div class="activity-form-aligned">
 <b>Username: </b><%= @user.username %><br>
-<%= button_to "Change password", user_path, :method => :get %>
+
 <b>Age: </b><%= @user.age %><br>
 <b>Height: </b><%= @user.height %><br>
 <b>Weight: </b><%= @user.weight %><br>
 <b>Bio: </b><%= @user.bio %><br>
-
+<br>
 <%= button_to "Edit My Details", edit_user_path, :method => :get %>
 
-
+</div>

@@ -24,3 +24,11 @@
      text-align: center;
      padding: 20px 0 20px 0;
  }
+
+ .menu{
+     text-align: right;
+ }
+
+ .menu a{
+     /* color: rgb(32, 43, 205); */
+ }
