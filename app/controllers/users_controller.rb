@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
+  before_action :is_admin?, only: [:index]
+  before_action :is_current_user_here?, only: [:show]
   skip_before_action :require_login, only: [:new, :create]
+
+  def is_current_user_here?
+    # helper method for users veiewing other users views
+    # Ideally want to redirect to current_users show path
+    unless current_user.id == params[:id].to_i
+      redirect_to dashboard_path
+    end
+  end
 
   def index
     @users = User.all
@@ -47,5 +57,4 @@ class UsersController < ApplicationController
   def strong_params
     params.require(:user).permit(:username, :password, :name, :age, :height, :weight, :bio)
   end
-
 end
