@@ -13,7 +13,6 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
   validates :age, numericality: { greater_than: 17, less_than: 110 }
-  validates :bio, length: { minimum: 15, maximum: 500 }
   validates :password, length: { in: 6..20 }
   validates :height, numericality: { greater_than: 90, less_than: 210 }
   validates :weight, numericality: { greater_than: 65, less_than: 500 }
@@ -63,4 +62,16 @@ class User < ApplicationRecord
   def calories_burned_through_exercises
     self.get_current_date.exercises.sum { |exercise| exercise.calories }
   end
+
+  def progress_bar
+    percent = []
+    calories_gained = calories_consumed_for_meals + calories_consumed_for_snacks
+    calories_burned = calories_burned_through_sedentary + calories_burned_through_exercises
+    total_calories = calories_burned + calories_gained
+    percent << ((calories_gained/ total_calories.to_f)*100).round(0)
+    percent << ((calories_burned / total_calories.to_f)*100).round(0)
+    percent
+  end
+
+
 end

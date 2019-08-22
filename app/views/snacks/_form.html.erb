@@ -1,18 +1,26 @@
-<%= form_for @ingredient do |f| %>
+<div role="form" class="border rounded activity-form-aligned">
+<%= form_for @snack do |f| %>
+<div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name, required: true %>
-  
+    <%= f.text_field :name, required: true, class: 'form-control'  %>
+ </div>
+<div class="form-group">
     <%= f.label :calories %>
-    <%= f.text_field :calories, required: true %>
-  
+    <%= f.text_field :calories, required: true, class: 'form-control'  %>
+     </div>
+ <div class="form-group"> 
     <%= f.label :protein %>
-    <%= f.text_field :protein, required: true %>
-  
+    <%= f.text_field :protein, required: true, class: 'form-control'  %>
+     </div>
+ <div class="form-group"> 
     <%= f.label :fat %>
-    <%= f.text_field :fat, required: true %>
-  
+    <%= f.text_field :fat, required: true, class: 'form-control'  %>
+     </div>
+<div class="form-group">  
     <%= f.label :carbs %>
-    <%= f.text_field :carbs, required: true %>
+    <%= f.text_field :carbs, required: true, class: 'form-control'  %>
+     </div>
 
     <%= f.submit %>
 <% end %>
+</div>

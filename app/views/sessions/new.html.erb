@@ -1,28 +1,27 @@
-
-
 <div class="form-aligned">
-<h2>Slouchr</h2>
-<br>
+    <h2>Slouchr</h2>
+    <br>
+        <div class="form-padding border" role="form">
+        <div class="form-group">
+            <%= form_tag sessions_path do %>
+            <%= label :user, :username %>
+            <%= text_field :user, :username, class: 'form-control'%>
+        </div>
 
-
-
-<div class="form-padding border" role="form">
-    <div class="form-group">
-        <%= form_tag sessions_path do %>
-        <%= label :user, :username %>
-        <%= text_field :user, :username, class: 'form-control'%>
+        <div class="form-group">
+            <%= label :user, :password %>
+            <%= password_field :user, :password, class: 'form-control' %>
+        </div>
+        
+        <div class="row user-form-buttons">
+                <div class="col" align="center">
+                    <%= submit_tag "Login" %>
+                    <% end %>
+                </div> 
+                <div class="col" align="left">
+                    <%= button_to "Sign up", new_user_path, :method => :get %>
+                </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <%= label :user, :password %>
-        <%= password_field :user, :password, class: 'form-control' %>
-    </div>
-
-    <%= submit_tag "Login" %>
-    <% end %>
-    </div>
-
-
 </div>
-
 

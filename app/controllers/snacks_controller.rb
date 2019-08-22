@@ -15,7 +15,8 @@ class SnacksController < ApplicationController
 
     def create
         @snack = Snack.create(snack_params)
-        redirect_to snack_path(@snack)
+        @day = current_user.get_current_date
+        redirect_to add_snack_path(current_user, day: @day.id)       
     end
 
     def edit

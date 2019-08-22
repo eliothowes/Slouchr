@@ -6,8 +6,13 @@
 <%= form_for @day, url: create_snack_path(@day), method: :post do |f| %>
        
         <%= f.select :snack_ids, options_for_select(Snack.all.collect { |s| [ s.name, s.id ] }), {}, {:multiple => true, :class => "form-control", :style => "height:125px" } %><br><br>
-
-        <%= f.submit%>
+ <div class="row">
+        <div class="col" align="right">
+        <%= f.submit "Add to Diary"%>
 
     <% end %>
+</div> 
+     <div class="col">
+            <%= button_to "Create New Snack", new_snack_path, method: :get %>
+        </div>
 </div>
