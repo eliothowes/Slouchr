@@ -23,16 +23,17 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new
+    @day = current_user.get_current_date
       if params[:meal][:ingredient_ids]       
         @meal.name = params[:meal][:name]
         ingredient_selection
         @meal.calculate_nutrition_totals
         @meal.save
-        redirect_to meals_path
+        redirect_to add_meal_path(current_user, day: @day.id)
       else
         @meal = Meal.new(meal_params)
         @meal.save
-        redirect_to meals_path
+        redirect_to add_meal_path(current_user, day: @day.id)
       end
   end
 

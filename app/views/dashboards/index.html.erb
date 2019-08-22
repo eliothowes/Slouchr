@@ -10,11 +10,36 @@
    <% end %>
 </div>
 <!-- Main Container-->
-<% if current_user.day_started? %>
 
+
+<% if current_user.day_started? %>
     <div class="container">
         <div class="row">
+           
+            <div class="col dash-boxes-single">
+                
+                    <div class="progress">
+                
+                        <div class="progress-bar bg-success" role="progressbar" style="width:<%= current_user.progress_bar[0] %>%">
+                           Calories Gained
+                        </div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width:<%= current_user.progress_bar[1] %>%">
+                           Calories Burned
+                        </div>
+                        
+                    </div>
+            </div>
+               
+            <div class="w-100"></div>
+            <div class="col dash-boxes-left border rounded">
+                Left pie chart 
+            </div>
 
+            <div class="col dash-boxes-right border rounded">
+                right pie chart
+            </div>
+
+        <div class="w-100"></div>
             <div class="col dash-boxes-left border rounded">
                 <%= render "sedentary_dashboard" %>
             </div>
@@ -37,7 +62,7 @@
 
 <% end %>
 
-
+<% if current_user.days.count > 1 %>
 <div class="dashboard-history border rounded">
 
     <h4>View History</h4>
@@ -46,3 +71,4 @@
     <%= submit_tag "View Diary"%>
     <% end %>
 </div>
+<% end %>

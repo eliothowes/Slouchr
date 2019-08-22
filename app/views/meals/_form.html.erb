@@ -10,37 +10,46 @@
 <% end %>
 
 <% if params[:decision] == "new" || @meal.ingredients.empty? && params[:action] == "edit" || @meal.ingredients.empty? && params[:action] == "update"%>
+
+<div role="form" class="border rounded activity-form-aligned">
     <%= form_for @meal do |f| %>
-        <div id="form_name_field">
+        <div>
             <%= f.label :name %>
-            <%= f.text_field :name, required: true %>
+            <%= f.text_field :name, required: true, class: 'form-control'  %>
         </div>
         <div>
             <%= f.label :total_calories %>
-            <%= f.number_field :total_calories, required: true %>
+            <%= f.number_field :total_calories, required: true, class: 'form-control'  %>
         </div>
         <div>
             <%= f.label :total_protein %>
-            <%= f.number_field :total_protein, required: true %>
+            <%= f.number_field :total_protein, required: true, class: 'form-control'  %>
         </div>
         <div>
             <%= f.label :total_fat %>
-            <%= f.number_field :total_fat, required: true %>
+            <%= f.number_field :total_fat, required: true, class: 'form-control'  %>
         </div>
         <div>
             <%= f.label :total_carbohydrate %>
-            <%= f.number_field :total_carbs, required: true %>
+            <%= f.number_field :total_carbs, required: true, class: 'form-control'  %>
         </div>
+        <br>
         <div>
             <%= f.submit %>
         </div>
     <% end %>
+    </div>
 <% elsif params[:decision] == "selection"|| @meal.ingredients && params[:action] == "edit" || @meal.ingredients && params[:action] == "update"%>
+
+
+<div role="form" class="border rounded activity-form-aligned">
     <%= form_for @meal do |f| %>
         <%= f.label :name %>
-        <%= f.text_field :name, required: true %>
-
-        <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, options: {multiple: true, required: true} %>
+        <%= f.text_field :name, required: true , class: 'form-control'%><br>
+        <%= f.label :ingredient %>
+        <%= f.select :ingredient_ids, options_for_select(Ingredient.all.collect { |i| [ i.name, i.id ] }), {}, {:multiple => true, required: true, :class => "form-control", :style => "height:125px" } %><br>
         <%= f.submit %>
     <% end %>
 <% end %>
+  </div>
+

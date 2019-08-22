@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  
+  skip_before_action :require_login, only: [:new, :create]
+
   def index
     @users = User.all
   end
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(strong_params)
     if @user.valid?
       @user.save
-      redirect_to users_path
+      redirect_to new_session_path
     else
       render :new
     end

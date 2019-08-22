@@ -5,8 +5,17 @@
 <%= form_for @day, url: create_meal_path(@day), method: :post do |f| %>
        
         <%= f.select :meal_ids, options_for_select(Meal.all.collect { |m| [ m.name, m.id ] }), {}, {:multiple => true, :class => "form-control", :style => "height:125px" } %><br><br>
-
-        <%= f.submit%>
-
+<div class="row">
+        <div class="col" align="right">
+        <%= f.submit "Add to Diary"%>
+ 
     <% end %>
+    </div>
+  <div class="col" align="center">
+    <%= button_to "Quick Create Meal", new_meal_path, method: :get, params: {decision: "new"} %>
+    </div>
+     <div class="col">
+    <%= button_to "Choose From Ingredients", stock_meal_path, method: :get, params: {decision: "selection"} %>
+    </div>
+</div>
 </div>
