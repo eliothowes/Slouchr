@@ -55,6 +55,11 @@ class User < ApplicationRecord
     self.get_current_date.snacks.sum { |snack| snack.calories }
   end
 
+  def combined_macros
+    macros_consumed_for_meals.zip(macros_consumed_for_snacks).map { |v| v.reduce(:+) }
+  end
+
+
   def calories_burned_through_sedentary
     self.get_current_date.sedentary_activities.sum { |sedentary| sedentary.calories }
   end
@@ -64,13 +69,15 @@ class User < ApplicationRecord
   end
 
   def progress_bar
-    percent = []
-    calories_gained = calories_consumed_for_meals + calories_consumed_for_snacks
-    calories_burned = calories_burned_through_sedentary + calories_burned_through_exercises
-    total_calories = calories_burned + calories_gained
-    percent << ((calories_gained/ total_calories.to_f)*100).round(0)
-    percent << ((calories_burned / total_calories.to_f)*100).round(0)
-    percent
+    if calories_consumed_for_meals > 0 || calories_consumed_for_snacks > 0
+      percent = []
+      calories_gained = calories_consumed_for_meals + calories_consumed_for_snacks
+      calories_burned = calories_burned_through_sedentary + calories_burned_through_exercises
+      total_calories = calories_burned + calories_gained
+      percent << ((calories_gained.to_f/ total_calories.to_f)*100).round(0)
+      percent << ((calories_burned.to_f / total_calories.to_f)*100).round(0)
+      percent
+    end
   end
 
 

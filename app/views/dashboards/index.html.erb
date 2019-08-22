@@ -13,30 +13,41 @@
 
 
 <% if current_user.day_started? %>
+   
     <div class="container">
         <div class="row">
-           
-            <div class="col dash-boxes-single">
-                
-                    <div class="progress">
-                
-                        <div class="progress-bar bg-success" role="progressbar" style="width:<%= current_user.progress_bar[0] %>%">
-                           Calories Gained
+            <% if current_user.progress_bar %>
+                <div class="col dash-boxes-single">
+                    
+                        <div class="progress">
+                    
+                            <div class="progress-bar bg-success" role="progressbar" style="width:<%= current_user.progress_bar[0] %>%">
+                            Calories Gained
+                            </div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width:<%= current_user.progress_bar[1] %>%">
+                            Calories Burned
+                            </div>
+                            
                         </div>
-                        <div class="progress-bar bg-danger" role="progressbar" style="width:<%= current_user.progress_bar[1] %>%">
-                           Calories Burned
-                        </div>
-                        
-                    </div>
-            </div>
-               
+                </div>
+            <% end %>  
             <div class="w-100"></div>
-            <div class="col dash-boxes-left border rounded">
-                Left pie chart 
+            <div class="col dash-boxes-left border rounded" align="center">
+                <h4> Today's Macros </h4>
+                    
+            
+                <%= pie_chart [["Protein: #{current_user.combined_macros[0]}g", current_user.combined_macros[0]], ["Fat: #{current_user.combined_macros[1]}g", current_user.combined_macros[1]], ["Carbs: #{current_user.combined_macros[2]}g", current_user.combined_macros[2]]], colors: ["#109618", "#dc3912", "#3366cc"], legend:"bottom", width:"45%", messages: {empty: "No data"} %>
+
+
+                    
             </div>
 
-            <div class="col dash-boxes-right border rounded">
-                right pie chart
+            <div class="col dash-boxes-right border rounded" align="center">
+               <h4> Activity Comparison </h4>
+                
+            
+                <%= pie_chart [["Sedentary Activity: #{current_user.calories_burned_through_sedentary} kcal", current_user.calories_burned_through_sedentary], ["Exercise: #{current_user.calories_burned_through_exercises} kcal", current_user.calories_burned_through_exercises]], colors: ["#109618", "#dc3912"], legend:"bottom", width:"45%", messages: {empty: "No data"} %>
+
             </div>
 
         <div class="w-100"></div>
@@ -72,3 +83,7 @@
     <% end %>
 </div>
 <% end %>
+
+
+
+
