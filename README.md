@@ -2,7 +2,7 @@
 A satirical health app that rewards you for being lazy and eating all the junk food in sight!
 
 ## Credits
-Project designed and created with [@HarryChopra](https://github.com/roderickcardenas)
+Slouchr was the brain child of [@HarryChopra](https://github.com/harrychopra) and together, 5 weeks into our Flatiron School experience, we designed and created the app you see here.
 
 ## Screenshots and Demo
 ### Screenshots
