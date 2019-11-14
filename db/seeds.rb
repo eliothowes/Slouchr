@@ -8,27 +8,23 @@
 
 # #Users
 
-User.create(name: "Harry Chopra", username: "harrychopra", password: "123456", age: 29, height: 187, weight: 187, bio: "This is my Bio. It is very interesting")
-User.create(name: "Eliot Howes", username: "eliothowes", password: "123456", age: 28, height: 172, weight: 178, bio: "This is my Bio. It is very interesting")
-User.create(name: "Rod Cardenas", username: "rokujo", password: "123456", age: 31, height: 175, weight: 160, bio: "This is my Bio. It is very interesting")
-User.create(name: "Adnan Azim", username: "adnanazam", password: "123456", age: 28, height: 187, weight: 170, bio: "This is my Bio. It is very interesting")
-User.create(name: "Nick Charlot", username: "whatever", password: "123456", age: 30, height: 180, weight: 180, bio: "This is my Bio. It is very interesting")
+User.create(name: "Test User", username: "TestUser", password: "123456", age: 30, height: 172, weight: 78, bio: "This is my Bio")
 
 # #Days
 
-Day.create(diary_date: "2019/08/1", user_id: 1)
-Day.create(diary_date: "2019/08/2", user_id: 2)
-Day.create(diary_date: "2019/08/3", user_id: 3)
-Day.create(diary_date: "2019/08/4", user_id: 4)
-Day.create(diary_date: "2019/08/5", user_id: 5)
-Day.create(diary_date: "2019/08/6", user_id: 2)
-Day.create(diary_date: "2019/08/7", user_id: 5)
-Day.create(diary_date: "2019/08/8", user_id: 1)
-Day.create(diary_date: "2019/08/9", user_id: 2)
-Day.create(diary_date: "2019/08/10", user_id: 3)
-Day.create(diary_date: "2019/08/11", user_id: 4)
-Day.create(diary_date: "2019/08/12", user_id: 5)
-Day.create(diary_date: "2019/08/13", user_id: 6)
+Day.create(diary_date: "2019/11/1", user_id: 1)
+Day.create(diary_date: "2019/11/2", user_id: 1)
+Day.create(diary_date: "2019/11/3", user_id: 1)
+Day.create(diary_date: "2019/11/4", user_id: 1)
+Day.create(diary_date: "2019/11/5", user_id: 1)
+Day.create(diary_date: "2019/11/6", user_id: 1)
+Day.create(diary_date: "2019/11/7", user_id: 1)
+Day.create(diary_date: "2019/11/8", user_id: 1)
+Day.create(diary_date: "2019/11/9", user_id: 1)
+Day.create(diary_date: "2019/11/10", user_id: 1)
+Day.create(diary_date: "2019/11/11", user_id: 1)
+Day.create(diary_date: "2019/11/12", user_id: 1)
+Day.create(diary_date: "2019/11/13", user_id: 1)
 
 # Exercises
 
