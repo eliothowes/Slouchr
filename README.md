@@ -1,85 +1,33 @@
-# Module 2 Final Project: Slouchr
+## Slouchr
+A satirical health app that rewards you for being lazy and eating all the junk food in sight!
 
-Harry Chopra & Eliot Howes
+## Credits
+Project designed and created with [@HarryChopra](https://github.com/roderickcardenas)
+ 
+## Screenshots
+Coming Soon...
 
-# Models and Relationship
+## Tech/framework used
+<b>Built with</b>
+- Front and Backend written in Ruby on Rails
 
-	 User  —<   Day —<  Day_Sedentary_Activity  >—  Sedentary_Activity
+## Installation
+From your command line:
 
-			         —<   Day_Exercise  >—  Exercise 
+### Clone the repository
+```bash
+$ git clone https://github.com/eliothowes1090/Slouchr.git
+```
 
-		         	 -<  Day_Meal  >-  Meal  —<  Meal_Ingredient  >—  Ingredient
+### Backend Setup
+```bash
+$ bundle install
+$ rails db:create db:migrate db:seed
+$ rails s
+```
 
-                -<  Day_Snack  >-  Snacks
+### Run the app
+In your browser enter the url: http://localhost:3000/
 
-			     
-             
-# Associations
-
-__*User*__
-has_many :days
-  has_many :day_sedentary_activities, through: :days
-  has_many :sedentary_activities, through: :day_sedentary_activities
-  has_many :day_exercises, through: :days
-  has_many :exercises, through: :day_exercises
-  has_many :day_meals, through: :days
-  has_many :meals, through: :day_meals
-  has_many :meal_ingredients, through: :meals
-  has_many :ingredients, through: :meal_ingredients
-  has_many :day_snacks, through: :days
-  has_many :snacks, through: :day_snacks
-
-__*Day*__
-belongs_to :user
-  has_many :day_sedentary_activities
-  has_many :sedentary_activities, through: :day_sedentary_activities
-  has_many :day_exercises
-  has_many :exercises, through: :day_exercises
-  has_many :day_meals
-  has_many :meals, through: :day_meals
-  has_many :meal_ingredients, through: :meals
-  has_many :ingredients, through: :meal_ingredients
-  has_many :day_snacks
-  has_many :snacks, through: :day_snacks
-
-
-__*Day_Sedentary_Activity*__
-belongs_to :day
-belongs_to :sedentary_activity
-
-__*Sedentary_Activity*__
-has_many :day_sedentary_activities
-has_many :days, through: :day_sedentary_activities
-
-__*Day_Exercise*__
-belongs_to :day
-belongs_to :exercise
-
-__*Exercise*__
-  has_many :day_exercises
-  has_many :days, through: :day_exercises
-
-__*Day_Meal*__
-belongs_to :day
-belongs_to :meal
-
-__*Meal*__
-has_many :day_meals
-has_many :meal_ingredients
-has_many :ingredients, through: :meal_ingredients
-
-__*Meal_ingredient*__
-belongs_to :meal
-belongs_to :ingredient
-
-__*Ingredient*__
-has_many :meal_ingredients
-
-__*Day_Snack*__
-belongs_to :day
-belongs_to :snack
-
-__*Snack*__
-has_many :day_snacks
-has_many :days, through: :day_snacks							     
-
+### Other setup
+To login use the username 'TestUser' and the password will be set to '123456'
