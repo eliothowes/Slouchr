@@ -3,9 +3,13 @@ A satirical health app that rewards you for being lazy and eating all the junk f
 
 ## Credits
 Project designed and created with [@HarryChopra](https://github.com/roderickcardenas)
- 
-## Screenshots
-Coming Soon...
+
+## Screenshots and Demo
+### Screenshots
+![Screenshots of Slouchr Application](https://media.giphy.com/media/kemcU5tVYp0djMS2k9/giphy.gif)
+
+### Demo
+<a href="https://youtu.be/USJUt4Mru24" target="_blank">Click to Watch Demo</a>
 
 ## Tech/framework used
 <b>Built with</b>
